@@ -1,6 +1,7 @@
 // import React and ReactDOM
 import React from "react";
 import * as ReactDOMClient from 'react-dom/client';
+import { faker } from "@faker-js/faker";
 
 // get ref to the div with id="root"
 const el = document.getElementById('root');
@@ -14,7 +15,7 @@ function App (){
         <div className="ui container comments">
           <div className="comment">
             <a href="/" className="avatar">
-              <img alt="avatar" />
+              <img alt="avatar" src={faker.image.avatar()} />
             </a>
             <div className="content">
               <a href="/" className="author">
