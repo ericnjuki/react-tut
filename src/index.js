@@ -1,17 +1,34 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+// import React and ReactDOM
+import React from "react";
+import * as ReactDOMClient from 'react-dom/client';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+// get ref to the div with id="root"
+const el = document.getElementById('root');
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+// tell react to take control of that element
+const root = ReactDOMClient.createRoot(el);
+
+// create a component
+function App (){
+    return (
+        <div className="ui container comments">
+          <div className="comment">
+            <a href="/" className="avatar">
+              <img alt="avatar" />
+            </a>
+            <div className="content">
+              <a href="/" className="author">
+                Sam
+              </a>
+              <div className="metadata">
+                <span className="date">Today at 6:00PM</span>
+              </div>
+              <div className="text">Nice blog post!</div>
+            </div>
+          </div>
+        </div>
+      );
+}
+
+// render the component
+root.render(<App />)
