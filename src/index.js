@@ -1,6 +1,7 @@
 // import React and ReactDOM
 import React from "react";
 import * as ReactDOMClient from 'react-dom/client';
+import SeasonDisplay from "./SeasonDisplay";
 
 
 // get ref to the div with id="root"
@@ -10,16 +11,9 @@ const el = document.getElementById('root');
 const root = ReactDOMClient.createRoot(el);
 
 // create a component
-const AppFunc = () => {
-
-	return (
-		<h1>hi there</h1>
-	);
-}
-
 class App extends React.Component {
 	state = {
-		lat: 0,
+		lat: null,
 		errorMessage: ''
 	};
 
@@ -31,7 +25,13 @@ class App extends React.Component {
 	}
 
 	render() {
-		return <div>Latitude: {this.state.lat}</div>
+		return (
+			<div>
+				{this.state.lat && <SeasonDisplay lat={this.state.lat} />}
+				{this.state.errorMessage && <div>error: {this.state.errorMessage}</div>}
+				{!this.state.lat && !this.state.errorMessage && <div>Loading...</div>}
+			</div>
+		)
 	}
 }
 
