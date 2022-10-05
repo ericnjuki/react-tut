@@ -27,7 +27,7 @@ const App = () => {
 			</ApprovalCard>
 			<ApprovalCard>
 				<CommentDetail
-					author='Shi'
+					author='Shiko'
 					time='Yesterday at 6:00PM'
 					body='Very awesome blog post!'
 					profilePic={faker.image.avatar()}

@@ -19,7 +19,15 @@ class App extends React.Component {
 
 	componentDidMount() {
 		window.navigator.geolocation.getCurrentPosition(
-            (position) => this.setState({ lat: position.coords.latitude }),
+            (position) => { 
+				fetch('https://api.ipregistry.co/?key=tryout')
+				.then(function (response) {
+					return response.json();
+				})
+				.then(function (payload) {
+					console.log(payload.location.country.name + ', ' + payload.location.city);
+				});
+				this.setState({ lat: position.coords.latitude })},
             (error) => this.setState({ errorMessage: error })
         )
 	}
